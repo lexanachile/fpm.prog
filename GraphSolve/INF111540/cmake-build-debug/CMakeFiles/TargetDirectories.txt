@@ -1,0 +1,3 @@
+C:/Users/REDMI/CLionProjects/INF111540/cmake-build-debug/CMakeFiles/INF111540.dir
+C:/Users/REDMI/CLionProjects/INF111540/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/REDMI/CLionProjects/INF111540/cmake-build-debug/CMakeFiles/rebuild_cache.dir
