@@ -68,6 +68,7 @@ int main() {
             cout << j + 1 << " ";
         }
         cout << endl;
-    } //gg
+    } //gg//
+    return 0;
     return 0;
 }
