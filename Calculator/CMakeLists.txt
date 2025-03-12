@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.30)
-project(INF111540)
+project(Calculator)
 
 set(CMAKE_CXX_STANDARD 20)
 
-add_executable(INF111540 INF111540.cpp)
+add_executable(Calculator Calculator.cpp)
