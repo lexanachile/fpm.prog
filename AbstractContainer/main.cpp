@@ -27,12 +27,19 @@ public:
     ~ArrayStack() {
         delete[] M;
 }
-    void push(const int& n);		// втолкнуть в стек
-    void pop(int& n);			// вытолкнуть из стека
-    bool IsEmpty() const;
-    bool IsFull() const ;
-    friend class ArrayStackIterator;
+    virtual void push(const int& n) {
 
+    };		// втолкнуть в стек
+    virtual void pop(int& n) {
+
+    };			// вытолкнуть из стека
+    virtual bool IsEmpty() const {
+        return (top == -1);
+    };
+    virtual bool IsFull() const {
+        return (top == size);
+    };
+    friend class ArrayStackIterator;
 };
 
 class ListStack: public AbstractStack {
