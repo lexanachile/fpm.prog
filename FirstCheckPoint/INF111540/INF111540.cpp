@@ -100,6 +100,6 @@ int main() {
             cout << j + 1 << " ";
         }
         cout << endl;
-    } //gg
+    }
     return 0;
 }
