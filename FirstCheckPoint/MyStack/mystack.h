@@ -62,6 +62,9 @@ class mystack {
            delete buf;
          return ret;
      }
+     T top() {
+       return head->info;
+     }
      int isempty() { 
          if (head == nullptr)
          return 1;
