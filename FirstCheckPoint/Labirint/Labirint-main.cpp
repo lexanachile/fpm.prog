@@ -1,6 +1,6 @@
 ﻿#include <iostream>
 #include "labirint.h"
-#include "mystack.h"
+//#include "mystack.h"
 #include <windows.h>
 using namespace std;
 struct before {
