@@ -2,9 +2,21 @@
 #include "mystack.h"
 
 int main() {
-    mystack<int> A;
-    A.push(10);
-    cout << A.top() << endl;
-    cout << A.pop() << endl;
+    try {
+        mystack<int> A;
+        mystack<int> B;
+        B.push(10);
+        B.push(20);
+        B.emplace(2, 33);
+        A.swap(B);
+        cout << (A == B)  << " " << (A != B)<< endl;
+        cout << A.size() << endl;
+        cout << A.top() << endl;
+        A.pop();
+        cout << A.size() << endl;
+        cout << A.top() << endl;
+    } catch(char const *str) {
+        cout << "Throw exception: " << str << endl;
+    }
     return 0;
 }
