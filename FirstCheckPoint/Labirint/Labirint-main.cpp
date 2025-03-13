@@ -15,7 +15,7 @@ void SetConsoleFontSize(int width, int height) {
   cfi.dwFontSize.Y = height;  // Высота шрифта
   cfi.FontFamily = FF_DONTCARE;
   cfi.FontWeight = FW_NORMAL;
-  wcscpy_s(cfi.FaceName, L"Consolas");  // Название шрифta
+  wcscpy_s(cfi.FaceName, L"Consolas");  // Название шрифтa
   HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
   SetCurrentConsoleFontEx(hConsole, FALSE, &cfi);
 }
