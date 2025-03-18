@@ -1,19 +1,15 @@
 #include <iostream>
-#include <stack>
 #include "polska.h"
 #include <string>
-#include <fstream>
-#include <cstring>
 #include <vector>
 using namespace std;
 
 int main(){
 try{
-    vector<pair<string, int>> v = {{"+", 1},{"-", 1}, {"*", 2}, {"/", 2}};
-     Calcululator calc(v);
+    vector<pair<string, int>> v = {{"+", 1},{"-", 1}, {"*", 2}, {"/", 2},};
+     Calcululator<double> calc(v);
     string str;
-    cin >> str;
-    cout << calc.calculate(str);
+    cout << calc.calculate("2^3/2/2*(1+3(2^0))");
 }
 catch(string err){
     cout << err << '\n';

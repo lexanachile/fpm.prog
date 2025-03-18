@@ -8,9 +8,10 @@ struct Unknown_operation {
     string operation;
 };
 
+template <typename T>
 class Calcululator {
 private:
-    mystack<int> numbers;
+    mystack<T> numbers;
     mystack<string> operations;
     vector<pair<string, int> > vec;
     string calc_line;
@@ -46,7 +47,7 @@ public:
         calc_line = str;
     }
 
-    int calculate(string str = "") {
+    T calculate(string str = "") {
         try {
             if (str != "") calc_line = str;
 
@@ -56,7 +57,7 @@ public:
             int last_prior = 0;
             int prior = 0;
             int open = 0;
-            int out = 0;
+            T out = 0;
             while (start != end) {
                 int num = get_unit(calc_line, unit, start, end);
                 switch (num) {
@@ -68,9 +69,9 @@ public:
                             break;
                         }
                         else if (prior == last_prior) {
-                            int a = numbers.top();
+                            T a = numbers.top();
                             numbers.pop();
-                            int b = numbers.top();
+                            T b = numbers.top();
                             numbers.pop();
                             numbers.push(do_op(operations.top(), a, b));
                             operations.pop();
@@ -82,9 +83,9 @@ public:
                                 if (operations.top() == "(") {
                                     break;
                                 }
-                                int a = numbers.top();
+                                T a = numbers.top();
                                 numbers.pop();
-                                int b = numbers.top();
+                                T b = numbers.top();
                                 numbers.pop();
                                 numbers.push(do_op(operations.top(), a, b));
                                 operations.pop();
@@ -104,9 +105,9 @@ public:
                             open--;
                             if (open < 0) throw "Wrong input( ')' more than '(' )";
                             while (operations.top() != "(") {
-                                int a = numbers.top();
+                                T a = numbers.top();
                                 numbers.pop();
-                                int b = numbers.top();
+                                T b = numbers.top();
                                 numbers.pop();
                                 numbers.push(do_op(operations.top(), a, b));
                                 operations.pop();
@@ -117,15 +118,15 @@ public:
                         break;
                     }
                     case  1: {
-                        numbers.push(atoi(unit.c_str()));
+                        numbers.push(str_convert(unit));
                         break;
                     }
                 }
             }
             while (numbers.size() > 1) {
-                int a = numbers.top();
+                T a = numbers.top();
                 numbers.pop();
-                int b = numbers.top();
+                T b = numbers.top();
                 numbers.pop();
                 numbers.push(do_op(operations.top(), a, b));
                 operations.pop();
@@ -148,7 +149,7 @@ public:
         err.operation = str;
         throw err;
     }
-    int do_op(const string &op, int b, int a) {
+    T do_op(const string &op, T b, T a) {
         if (op == "+"){
             return a + b;
         }
@@ -161,6 +162,22 @@ public:
         if (op == "/"){
             if (b == 0) throw "Divide by zero";
             return a / b;
+        }
+        if (op == "^") {
+            T out;
+            if (b == 0) return 1;
+
+            else if (b < 0) {
+                out = 1;
+                for (int i = 1; i < b; i++) {
+                    out /= a;
+                }
+                return out;
+            }
+            for (int i = 1; i < b; i++) {
+                out *= a;
+            }
+            return out;
         }
         else {
             Unknown_operation err;
@@ -184,7 +201,7 @@ public:
                 if (is_num) return 1;
                 else return -1;
             }
-            if ((str[begin] >= '0' && str[begin] <= '9') == is_num) {
+            if ((str[begin] >= '0' && str[begin] <= '9' || str[begin] == ',') == is_num) {
                 unit += str[begin];
             }
             else {
@@ -194,5 +211,8 @@ public:
         }
         if (is_num) return 1;
         else return -1;
+    }
+    T str_convert(string str) {
+        return atof(str.c_str());
     }
 };
