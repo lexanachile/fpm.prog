@@ -6,10 +6,10 @@ using namespace std;
 
 int main(){
 try{
-    vector<pair<string, int>> v = {{"+", 1},{"-", 1}, {"*", 2}, {"/", 2},};
+    vector<pair<string, int>> v = {{"+", 1},{"-", 1}, {"*", 2}, {"/", 2}, {"^", 3}};
      Calcululator<double> calc(v);
     string str;
-    cout << calc.calculate("2^3/2/2*(1+3(2^0))");
+    cout << calc.calculate("(-5)^(-1)");
 }
 catch(string err){
     cout << err << '\n';

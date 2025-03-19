@@ -114,6 +114,7 @@ public:
                             }
                             operations.pop();
                             if (!operations.isempty()) last_prior = get_priority(operations.top());
+                            else last_prior = 0;
                         }
                         break;
                     }
@@ -164,17 +165,17 @@ public:
             return a / b;
         }
         if (op == "^") {
-            T out;
-            if (b == 0) return 1;
+            T out = 1;
+            if (b == 0) return out;
 
             else if (b < 0) {
                 out = 1;
-                for (int i = 1; i < b; i++) {
+                for (int i = b; i < 0; i++) {
                     out /= a;
                 }
                 return out;
             }
-            for (int i = 1; i < b; i++) {
+            for (int i = 0; i < b; i++) {
                 out *= a;
             }
             return out;
@@ -195,6 +196,11 @@ public:
             begin++;
             return 0;
         }
+
+        if (str[begin - 1] == '(' && str[begin] == '-') {
+            numbers.push(0);
+        }
+
         if (str[begin] >= '0' && str[begin] <= '9') is_num = true;
         for (; begin < end; begin++) {
             if (str[begin] == '(' || str[begin] == ')') {
