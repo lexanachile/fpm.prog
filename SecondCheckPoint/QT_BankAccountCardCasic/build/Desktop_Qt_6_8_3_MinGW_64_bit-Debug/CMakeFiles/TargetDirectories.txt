@@ -1,0 +1,9 @@
+C:/Users/yaras/OneDrive/Dokumente/GitHub/fpm.prog/SecondCheckPoint/QT_BankAccountCardCasic/build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/CMakeFiles/QT_BankAccountCardCasic.dir
+C:/Users/yaras/OneDrive/Dokumente/GitHub/fpm.prog/SecondCheckPoint/QT_BankAccountCardCasic/build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/CMakeFiles/edit_cache.dir
+C:/Users/yaras/OneDrive/Dokumente/GitHub/fpm.prog/SecondCheckPoint/QT_BankAccountCardCasic/build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/CMakeFiles/rebuild_cache.dir
+C:/Users/yaras/OneDrive/Dokumente/GitHub/fpm.prog/SecondCheckPoint/QT_BankAccountCardCasic/build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/CMakeFiles/list_install_components.dir
+C:/Users/yaras/OneDrive/Dokumente/GitHub/fpm.prog/SecondCheckPoint/QT_BankAccountCardCasic/build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/CMakeFiles/install.dir
+C:/Users/yaras/OneDrive/Dokumente/GitHub/fpm.prog/SecondCheckPoint/QT_BankAccountCardCasic/build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/CMakeFiles/install/local.dir
+C:/Users/yaras/OneDrive/Dokumente/GitHub/fpm.prog/SecondCheckPoint/QT_BankAccountCardCasic/build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/CMakeFiles/install/strip.dir
+C:/Users/yaras/OneDrive/Dokumente/GitHub/fpm.prog/SecondCheckPoint/QT_BankAccountCardCasic/build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/CMakeFiles/QT_BankAccountCardCasic_autogen_timestamp_deps.dir
+C:/Users/yaras/OneDrive/Dokumente/GitHub/fpm.prog/SecondCheckPoint/QT_BankAccountCardCasic/build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/CMakeFiles/QT_BankAccountCardCasic_autogen.dir
