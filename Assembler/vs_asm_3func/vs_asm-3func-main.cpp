@@ -20,9 +20,36 @@ int main() {
 		// ¬исокосным считаетс€ год, дел€щийс€ на 4, за исключением тех годов,
 		// которые дел€тс€ на 100 и не дел€тс€ на 400
 		// (например, 300, 1300 и 1900 годы не €вл€ютс€ високосными, а 1200 и 2000 Ц €вл€ютс€
+		int year = 800;
+		bool can = false;
 		_asm {
+			mov eax, year
+			xor edx, edx
+			mov ebx, 4
+			div ecx
+			cmp edx, 0
+			jnz end1
 
+			mov eax, year
+			mov ecx, 100
+			div ecx
+			cmp edx, 0
+			jnz YES1
+
+			mov ecx, 4
+			div ecx
+			cmp edx, 0
+			jnz end1
+
+YES1:		mov can, 1
+
+
+
+end1:			
 		}
+		cout << "√од " << year << " - ";
+		if (can) cout << "¬исокосный";
+		else cout << "Ќе високосный";
 		break;
 	}
 	case 3: {
@@ -75,7 +102,7 @@ int main() {
 			jmp NO
 
 NotEqual:	jg NO
-Yes:		mov eax, 1
+YES:		mov eax, 1
 			mov can, eax
 			jmp endd
 

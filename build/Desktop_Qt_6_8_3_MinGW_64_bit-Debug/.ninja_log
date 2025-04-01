@@ -1,9 +1,0 @@
-# ninja log v6
-6	1226	7651349469868010	QT_BankAccountCardCasic_autogen/timestamp	b7b5aa6e058d2430
-6	1226	7651349469868010	QT_BankAccountCardCasic_autogen/mocs_compilation.cpp	b7b5aa6e058d2430
-6	1226	7651349469868010	C:/Users/yaras/OneDrive/Dokumente/GitHub/fpm.prog/SecondCheckPoint/QT_BankAccountCardCasic/build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/QT_BankAccountCardCasic_autogen/timestamp	b7b5aa6e058d2430
-6	1226	7651349469868010	C:/Users/yaras/OneDrive/Dokumente/GitHub/fpm.prog/SecondCheckPoint/QT_BankAccountCardCasic/build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/QT_BankAccountCardCasic_autogen/mocs_compilation.cpp	b7b5aa6e058d2430
-1261	5294	7651349471871645	CMakeFiles/QT_BankAccountCardCasic.dir/QT_BankAccountCardCasic_autogen/mocs_compilation.cpp.obj	51b074e1ea1fe63b
-1270	5297	7651349471967804	CMakeFiles/QT_BankAccountCardCasic.dir/qt_bankwindow-main.cpp.obj	6893d4dbde3fe44a
-1283	5697	7651349472069602	CMakeFiles/QT_BankAccountCardCasic.dir/qt_bankwindow.cpp.obj	75dd77033e0e8f98
-5698	6140	7651349516240977	QT_BankAccountCardCasic.exe	6c18c12f474f3024

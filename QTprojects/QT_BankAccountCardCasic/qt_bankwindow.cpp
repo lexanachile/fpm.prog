@@ -12,3 +12,5 @@ QTBankWindow::~QTBankWindow()
 {
     delete ui;
 }
+
+

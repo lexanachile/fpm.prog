@@ -30,7 +30,7 @@
               "RelativeDocumentMoniker": "vs_asm-3func-main.cpp",
               "ToolTip": "C:\\Users\\yaras\\OneDrive\\Dokumente\\GitHub\\fpm.prog\\Assembler\\vs_asm_3func\\vs_asm-3func-main.cpp",
               "RelativeToolTip": "vs_asm-3func-main.cpp",
-              "ViewState": "AgIAAEcAAAAAAAAAAAAAwDIAAAANAAAAAAAAAA==",
+              "ViewState": "AgIAACQAAAAAAAAAAAAjwDEAAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-03-30T16:16:06.871Z",
               "EditorCaption": ""
@@ -45,8 +45,7 @@
               "RelativeToolTip": "..\\vs_asm_x-y\\vs_asm_x-y.cpp",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-03-30T16:08:24.95Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-30T16:08:24.95Z"
             },
             {
               "$type": "Document",
@@ -58,8 +57,7 @@
               "RelativeToolTip": "..\\vs_asm_x-y\\SubInt.asm",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2025-03-30T16:08:14.917Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-30T16:08:14.917Z"
             }
           ]
         }

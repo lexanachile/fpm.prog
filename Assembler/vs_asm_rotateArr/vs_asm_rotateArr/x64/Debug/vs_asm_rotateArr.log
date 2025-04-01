@@ -1,0 +1,44 @@
+﻿  vs_asm_rotateArr.cpp
+C:\Users\yaras\OneDrive\Dokumente\GitHub\fpm.prog\Assembler\vs_asm_rotateArr\vs_asm_rotateArr.cpp(6,5): error C4235: использовано нестандартное расширение: ключевое слово "__asm" данной архитектурой не поддерживается
+C:\Users\yaras\OneDrive\Dokumente\GitHub\fpm.prog\Assembler\vs_asm_rotateArr\vs_asm_rotateArr.cpp(8,9): error C2065: mov: необъявленный идентификатор
+C:\Users\yaras\OneDrive\Dokumente\GitHub\fpm.prog\Assembler\vs_asm_rotateArr\vs_asm_rotateArr.cpp(8,13): error C2146: синтаксическая ошибка: отсутствие ";" перед идентификатором "ecx"
+C:\Users\yaras\OneDrive\Dokumente\GitHub\fpm.prog\Assembler\vs_asm_rotateArr\vs_asm_rotateArr.cpp(8,13): error C2065: ecx: необъявленный идентификатор
+C:\Users\yaras\OneDrive\Dokumente\GitHub\fpm.prog\Assembler\vs_asm_rotateArr\vs_asm_rotateArr.cpp(9,9): error C2146: синтаксическая ошибка: отсутствие ";" перед идентификатором "shr"
+C:\Users\yaras\OneDrive\Dokumente\GitHub\fpm.prog\Assembler\vs_asm_rotateArr\vs_asm_rotateArr.cpp(9,9): error C2065: shr: необъявленный идентификатор
+C:\Users\yaras\OneDrive\Dokumente\GitHub\fpm.prog\Assembler\vs_asm_rotateArr\vs_asm_rotateArr.cpp(9,13): error C2146: синтаксическая ошибка: отсутствие ";" перед идентификатором "ecx"
+C:\Users\yaras\OneDrive\Dokumente\GitHub\fpm.prog\Assembler\vs_asm_rotateArr\vs_asm_rotateArr.cpp(9,13): error C2065: ecx: необъявленный идентификатор
+C:\Users\yaras\OneDrive\Dokumente\GitHub\fpm.prog\Assembler\vs_asm_rotateArr\vs_asm_rotateArr.cpp(10,9): error C2146: синтаксическая ошибка: отсутствие ";" перед идентификатором "mov"
+C:\Users\yaras\OneDrive\Dokumente\GitHub\fpm.prog\Assembler\vs_asm_rotateArr\vs_asm_rotateArr.cpp(10,9): error C2065: mov: необъявленный идентификатор
+C:\Users\yaras\OneDrive\Dokumente\GitHub\fpm.prog\Assembler\vs_asm_rotateArr\vs_asm_rotateArr.cpp(10,13): error C2146: синтаксическая ошибка: отсутствие ";" перед идентификатором "esi"
+C:\Users\yaras\OneDrive\Dokumente\GitHub\fpm.prog\Assembler\vs_asm_rotateArr\vs_asm_rotateArr.cpp(10,13): error C2065: esi: необъявленный идентификатор
+C:\Users\yaras\OneDrive\Dokumente\GitHub\fpm.prog\Assembler\vs_asm_rotateArr\vs_asm_rotateArr.cpp(11,9): error C2146: синтаксическая ошибка: отсутствие ";" перед идентификатором "mov"
+C:\Users\yaras\OneDrive\Dokumente\GitHub\fpm.prog\Assembler\vs_asm_rotateArr\vs_asm_rotateArr.cpp(11,9): error C2065: mov: необъявленный идентификатор
+C:\Users\yaras\OneDrive\Dokumente\GitHub\fpm.prog\Assembler\vs_asm_rotateArr\vs_asm_rotateArr.cpp(11,13): error C2146: синтаксическая ошибка: отсутствие ";" перед идентификатором "edi"
+C:\Users\yaras\OneDrive\Dokumente\GitHub\fpm.prog\Assembler\vs_asm_rotateArr\vs_asm_rotateArr.cpp(11,13): error C2065: edi: необъявленный идентификатор
+C:\Users\yaras\OneDrive\Dokumente\GitHub\fpm.prog\Assembler\vs_asm_rotateArr\vs_asm_rotateArr.cpp(12,9): error C2146: синтаксическая ошибка: отсутствие ";" перед идентификатором "mov"
+C:\Users\yaras\OneDrive\Dokumente\GitHub\fpm.prog\Assembler\vs_asm_rotateArr\vs_asm_rotateArr.cpp(12,9): error C2065: mov: необъявленный идентификатор
+C:\Users\yaras\OneDrive\Dokumente\GitHub\fpm.prog\Assembler\vs_asm_rotateArr\vs_asm_rotateArr.cpp(12,13): error C2146: синтаксическая ошибка: отсутствие ";" перед идентификатором "eax"
+C:\Users\yaras\OneDrive\Dokumente\GitHub\fpm.prog\Assembler\vs_asm_rotateArr\vs_asm_rotateArr.cpp(12,13): error C2065: eax: необъявленный идентификатор
+C:\Users\yaras\OneDrive\Dokumente\GitHub\fpm.prog\Assembler\vs_asm_rotateArr\vs_asm_rotateArr.cpp(13,9): error C2146: синтаксическая ошибка: отсутствие ";" перед идентификатором "sub"
+C:\Users\yaras\OneDrive\Dokumente\GitHub\fpm.prog\Assembler\vs_asm_rotateArr\vs_asm_rotateArr.cpp(13,9): error C2065: sub: необъявленный идентификатор
+C:\Users\yaras\OneDrive\Dokumente\GitHub\fpm.prog\Assembler\vs_asm_rotateArr\vs_asm_rotateArr.cpp(13,13): error C2146: синтаксическая ошибка: отсутствие ";" перед идентификатором "eax"
+C:\Users\yaras\OneDrive\Dokumente\GitHub\fpm.prog\Assembler\vs_asm_rotateArr\vs_asm_rotateArr.cpp(13,13): error C2065: eax: необъявленный идентификатор
+C:\Users\yaras\OneDrive\Dokumente\GitHub\fpm.prog\Assembler\vs_asm_rotateArr\vs_asm_rotateArr.cpp(14,9): error C2146: синтаксическая ошибка: отсутствие ";" перед идентификатором "imul"
+C:\Users\yaras\OneDrive\Dokumente\GitHub\fpm.prog\Assembler\vs_asm_rotateArr\vs_asm_rotateArr.cpp(14,9): error C2065: imul: необъявленный идентификатор
+C:\Users\yaras\OneDrive\Dokumente\GitHub\fpm.prog\Assembler\vs_asm_rotateArr\vs_asm_rotateArr.cpp(14,14): error C2146: синтаксическая ошибка: отсутствие ";" перед идентификатором "eax"
+C:\Users\yaras\OneDrive\Dokumente\GitHub\fpm.prog\Assembler\vs_asm_rotateArr\vs_asm_rotateArr.cpp(14,14): error C2065: eax: необъявленный идентификатор
+C:\Users\yaras\OneDrive\Dokumente\GitHub\fpm.prog\Assembler\vs_asm_rotateArr\vs_asm_rotateArr.cpp(15,9): error C2146: синтаксическая ошибка: отсутствие ";" перед идентификатором "add"
+C:\Users\yaras\OneDrive\Dokumente\GitHub\fpm.prog\Assembler\vs_asm_rotateArr\vs_asm_rotateArr.cpp(15,9): error C2065: add: необъявленный идентификатор
+C:\Users\yaras\OneDrive\Dokumente\GitHub\fpm.prog\Assembler\vs_asm_rotateArr\vs_asm_rotateArr.cpp(15,13): error C2146: синтаксическая ошибка: отсутствие ";" перед идентификатором "edi"
+C:\Users\yaras\OneDrive\Dokumente\GitHub\fpm.prog\Assembler\vs_asm_rotateArr\vs_asm_rotateArr.cpp(15,13): error C2065: edi: необъявленный идентификатор
+C:\Users\yaras\OneDrive\Dokumente\GitHub\fpm.prog\Assembler\vs_asm_rotateArr\vs_asm_rotateArr.cpp(15,18): error C2065: eax: необъявленный идентификатор
+C:\Users\yaras\OneDrive\Dokumente\GitHub\fpm.prog\Assembler\vs_asm_rotateArr\vs_asm_rotateArr.cpp(17,1): error C2146: синтаксическая ошибка: отсутствие ";" перед идентификатором "for1"
+C:\Users\yaras\OneDrive\Dokumente\GitHub\fpm.prog\Assembler\vs_asm_rotateArr\vs_asm_rotateArr.cpp(18,9): error C2065: mov: необъявленный идентификатор
+C:\Users\yaras\OneDrive\Dokumente\GitHub\fpm.prog\Assembler\vs_asm_rotateArr\vs_asm_rotateArr.cpp(18,13): error C2146: синтаксическая ошибка: отсутствие ";" перед идентификатором "eax"
+C:\Users\yaras\OneDrive\Dokumente\GitHub\fpm.prog\Assembler\vs_asm_rotateArr\vs_asm_rotateArr.cpp(18,13): error C2065: eax: необъявленный идентификатор
+C:\Users\yaras\OneDrive\Dokumente\GitHub\fpm.prog\Assembler\vs_asm_rotateArr\vs_asm_rotateArr.cpp(19,9): error C2760: синтаксическая ошибка: непредвиденный элемент "mov". Ожидается "{"
+C:\Users\yaras\OneDrive\Dokumente\GitHub\fpm.prog\Assembler\vs_asm_rotateArr\vs_asm_rotateArr.cpp(19,13): error C2065: ebx: необъявленный идентификатор
+C:\Users\yaras\OneDrive\Dokumente\GitHub\fpm.prog\Assembler\vs_asm_rotateArr\vs_asm_rotateArr.cpp(20,9): error C2760: синтаксическая ошибка: непредвиденный элемент "mov". Ожидается "{"
+C:\Users\yaras\OneDrive\Dokumente\GitHub\fpm.prog\Assembler\vs_asm_rotateArr\vs_asm_rotateArr.cpp(20,17): error C2760: синтаксическая ошибка: непредвиденный элемент ",". Ожидается "{"
+C:\Users\yaras\OneDrive\Dokumente\GitHub\fpm.prog\Assembler\vs_asm_rotateArr\vs_asm_rotateArr.cpp(20,19): error C2065: ebx: необъявленный идентификатор
+C:\Users\yaras\OneDrive\Dokumente\GitHub\fpm.prog\Assembler\vs_asm_rotateArr\vs_asm_rotateArr.cpp(21,9): error C2146: синтаксическая ошибка: отсутствие "," перед идентификатором "mov"

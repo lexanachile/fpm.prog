@@ -1,0 +1,20 @@
+﻿  vs_asm_sum.cpp
+C:\Users\yaras\OneDrive\Dokumente\GitHub\fpm.prog\Assembler\vs_asm_sum\vs_asm_sum.cpp(7,5): error C4235: использовано нестандартное расширение: ключевое слово "__asm" данной архитектурой не поддерживается
+C:\Users\yaras\OneDrive\Dokumente\GitHub\fpm.prog\Assembler\vs_asm_sum\vs_asm_sum.cpp(9,9): error C2065: mov: необъявленный идентификатор
+C:\Users\yaras\OneDrive\Dokumente\GitHub\fpm.prog\Assembler\vs_asm_sum\vs_asm_sum.cpp(9,13): error C2146: синтаксическая ошибка: отсутствие ";" перед идентификатором "eax"
+C:\Users\yaras\OneDrive\Dokumente\GitHub\fpm.prog\Assembler\vs_asm_sum\vs_asm_sum.cpp(9,13): error C2065: eax: необъявленный идентификатор
+C:\Users\yaras\OneDrive\Dokumente\GitHub\fpm.prog\Assembler\vs_asm_sum\vs_asm_sum.cpp(10,9): error C2146: синтаксическая ошибка: отсутствие ";" перед идентификатором "mov"
+C:\Users\yaras\OneDrive\Dokumente\GitHub\fpm.prog\Assembler\vs_asm_sum\vs_asm_sum.cpp(10,9): error C2065: mov: необъявленный идентификатор
+C:\Users\yaras\OneDrive\Dokumente\GitHub\fpm.prog\Assembler\vs_asm_sum\vs_asm_sum.cpp(10,13): error C2146: синтаксическая ошибка: отсутствие ";" перед идентификатором "ecx"
+C:\Users\yaras\OneDrive\Dokumente\GitHub\fpm.prog\Assembler\vs_asm_sum\vs_asm_sum.cpp(10,13): error C2065: ecx: необъявленный идентификатор
+C:\Users\yaras\OneDrive\Dokumente\GitHub\fpm.prog\Assembler\vs_asm_sum\vs_asm_sum.cpp(11,9): error C2146: синтаксическая ошибка: отсутствие ";" перед идентификатором "mov"
+C:\Users\yaras\OneDrive\Dokumente\GitHub\fpm.prog\Assembler\vs_asm_sum\vs_asm_sum.cpp(11,9): error C2065: mov: необъявленный идентификатор
+C:\Users\yaras\OneDrive\Dokumente\GitHub\fpm.prog\Assembler\vs_asm_sum\vs_asm_sum.cpp(11,13): error C2146: синтаксическая ошибка: отсутствие ";" перед идентификатором "esi"
+C:\Users\yaras\OneDrive\Dokumente\GitHub\fpm.prog\Assembler\vs_asm_sum\vs_asm_sum.cpp(11,13): error C2065: esi: необъявленный идентификатор
+C:\Users\yaras\OneDrive\Dokumente\GitHub\fpm.prog\Assembler\vs_asm_sum\vs_asm_sum.cpp(12,1): error C2146: синтаксическая ошибка: отсутствие ";" перед идентификатором "for4"
+C:\Users\yaras\OneDrive\Dokumente\GitHub\fpm.prog\Assembler\vs_asm_sum\vs_asm_sum.cpp(13,9): error C2065: add: необъявленный идентификатор
+C:\Users\yaras\OneDrive\Dokumente\GitHub\fpm.prog\Assembler\vs_asm_sum\vs_asm_sum.cpp(13,13): error C2146: синтаксическая ошибка: отсутствие ";" перед идентификатором "eax"
+C:\Users\yaras\OneDrive\Dokumente\GitHub\fpm.prog\Assembler\vs_asm_sum\vs_asm_sum.cpp(13,13): error C2065: eax: необъявленный идентификатор
+C:\Users\yaras\OneDrive\Dokumente\GitHub\fpm.prog\Assembler\vs_asm_sum\vs_asm_sum.cpp(14,9): error C2760: синтаксическая ошибка: непредвиденный элемент "add". Ожидается "{"
+C:\Users\yaras\OneDrive\Dokumente\GitHub\fpm.prog\Assembler\vs_asm_sum\vs_asm_sum.cpp(14,13): error C2065: esi: необъявленный идентификатор
+C:\Users\yaras\OneDrive\Dokumente\GitHub\fpm.prog\Assembler\vs_asm_sum\vs_asm_sum.cpp(15,9): error C2146: синтаксическая ошибка: отсутствие "," перед идентификатором "loop"
