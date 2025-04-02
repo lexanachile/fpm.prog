@@ -14,6 +14,13 @@ class Account{
     int maxCards;
     int numOfCards;
 public:
+    Account(){
+        accountID = 0;
+        owner = "";
+        balance = 0;
+        maxCards = 3;
+        numOfCards = 0;
+    }
     Account(int id, QString person){
         accountID = id;
         owner = person;
@@ -25,6 +32,8 @@ public:
         accountID = acc.accountID;
         balance = acc.balance;
         owner = acc.owner;
+        maxCards = acc.maxCards;
+        numOfCards = acc.numOfCards;
     }
     int getBalance(){
         return balance;
@@ -54,10 +63,15 @@ class Card{
     int cardPIN;
     Account *connectedAccount;
 public:
-    Card(int id, int pin){
+    Card(){
+        cardID = 0;
+        cardPIN = 0;
+        connectedAccount = nullptr;
+    }
+    Card(int id, int pin, Account* acc){
         cardID = id;
         cardPIN = pin;
-        connectedAccount = nullptr;
+        connectedAccount = acc;
     };
     Card(const Card& c){
         cardID = c.cardID;
@@ -121,8 +135,7 @@ public:
     void transfer(const int& money, const int& cardID){
         if(currentAccount == nullptr) throw "Session is not opend";
         int newAccID = cards[cardID].getAccountID();
-        Account* transferTo;
-        accounts.value(newAccID);
+        Account* transferTo = &accounts[newAccID];
         try {
             currentAccount->cashout(money);
             transferTo->deposit(money);
@@ -141,9 +154,11 @@ public:
 
     int openAccount(const QString& owner){
         int AccountID;
-        for (int var = 10; var < 2000000; ++var) {
-            auto it = accounts.find(var);
-            if (it == accounts.end()) AccountID = var;
+        for (int var = 1; var < 200; ++var) {
+            if (!accounts.contains(var)) {  // если такого ключа нет в QMap
+                AccountID = var;
+                break;
+            }
         }
         accounts.insert(AccountID, Account(AccountID, owner));
         return AccountID;
@@ -154,9 +169,12 @@ public:
         int cardid = 0;
         for (int var = 10; var < 2000000; ++var) {
             auto it = cards.find(var);
-            if (it == cards.end()) cardid = var;
+            if (it == cards.end()) {
+                cardid = var;
+                break;
+            }
         }
-        Card card(cardid, 1111);
+        Card card(cardid, 1111, acc);
         acc->addCard();
         cards.insert(cardid, card);
         return cardid;

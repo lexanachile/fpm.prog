@@ -10,13 +10,27 @@ QTBankWindow::QTBankWindow(QWidget *parent)
     ui->setupUi(this);
     std::cout << "start" << std::endl;
 
+    try{
     Bank Alpha("AlphaBank");
     int acc1num = Alpha.openAccount("Lexa");
     int acc2num = Alpha.openAccount("Grisha");
-    Alpha.addCard(acc1num);
-    Alpha.addCard(acc2num);
+    int card1 = Alpha.addCard(acc1num);
+    int card2 = Alpha.addCard(acc2num);
+    Alpha.OpenSession(card1, 1111);
     Alpha.deposit(1000);
-    Alpha.getBalance();
+    std::cout << Alpha.getBalance();
+    Alpha.cashout(200);
+     std::cout << Alpha.getBalance();
+    Alpha.transfer(400, card2);
+    std::cout << Alpha.getBalance();
+    Alpha.closeSession();
+    Alpha.OpenSession(card2, 1111);
+    std::cout << Alpha.getBalance();
+    Alpha.closeSession();
+    }
+    catch(const char* msg){
+        std::cout<< msg;
+    }
 }
 
 QTBankWindow::~QTBankWindow()
