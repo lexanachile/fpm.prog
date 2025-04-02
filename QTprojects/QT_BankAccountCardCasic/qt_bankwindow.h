@@ -18,9 +18,7 @@ public:
     ~QTBankWindow();
 
 private slots:
-    void on_pushButton_clicked(bool checked);
 
-    void on_widget_4_customContextMenuRequested(const QPoint &pos);
 
 private:
     Ui::QTBankWindow *ui;
