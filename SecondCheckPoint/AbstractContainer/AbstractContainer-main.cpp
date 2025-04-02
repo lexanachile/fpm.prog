@@ -780,18 +780,6 @@ public:
 
 int main()
 {
-	ArrayQueue q1;
-	AbstractQueue &q = q1;
-	for (int i = 0; i < 5; i++)
-	{
-		q.push(i);
-	}
-	ArrayQueueIterator it1(q1);
-	AbstractIterator &it = it1;
-	while (it.InRange())
-	{
-		cout << *it << " ";
-		++it;
-	}
+	
 	return 0;
 }
