@@ -1,0 +1,10 @@
+"C:\Program Files\JetBrains\CLion 2024.3.5\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug "-DCMAKE_MAKE_PROGRAM=C:/Program Files/JetBrains/CLion 2024.3.5/bin/ninja/win/x64/ninja.exe" -G Ninja -S C:\Users\yaras\OneDrive\Dokumente\GitHub\fpm.prog\QTprojects\QTDijkstra -B C:\Users\yaras\OneDrive\Dokumente\GitHub\fpm.prog\QTprojects\QTDijkstra\cmake-build-debug
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+-- Found Threads: TRUE
+-- Performing Test HAVE_STDATOMIC
+-- Performing Test HAVE_STDATOMIC - Success
+-- Found WrapAtomic: TRUE
+-- Configuring done (3.3s)
+-- Generating done (0.4s)
+-- Build files have been written to: C:/Users/yaras/OneDrive/Dokumente/GitHub/fpm.prog/QTprojects/QTDijkstra/cmake-build-debug

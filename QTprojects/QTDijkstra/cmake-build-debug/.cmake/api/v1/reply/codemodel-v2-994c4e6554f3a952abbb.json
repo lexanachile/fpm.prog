@@ -1,0 +1,79 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-Debug-0cfb1651bbe5c5db8404.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.16"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "QTDijkstra",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "QTDijkstra::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-QTDijkstra-Debug-a8a4eeec918afbafe92b.json",
+					"name" : "QTDijkstra",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "QTDijkstra_autogen::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-QTDijkstra_autogen-Debug-c64fda67c38f6b2bfc22.json",
+					"name" : "QTDijkstra_autogen",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "QTDijkstra_autogen_timestamp_deps::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-QTDijkstra_autogen_timestamp_deps-Debug-ae923b4ac55755785168.json",
+					"name" : "QTDijkstra_autogen_timestamp_deps",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "C:/Users/yaras/OneDrive/Dokumente/GitHub/fpm.prog/QTprojects/QTDijkstra/cmake-build-debug",
+		"source" : "C:/Users/yaras/OneDrive/Dokumente/GitHub/fpm.prog/QTprojects/QTDijkstra"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 7
+	}
+}
