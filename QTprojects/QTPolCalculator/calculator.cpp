@@ -17,12 +17,12 @@ Calculator::Calculator(QWidget *parent)
     ui->dial->setNotchesVisible(true);
     ui->rotatesCount->setText(QString::number(3 - Calculator::countOfRotates));
     ui->calcButton->hide();
-    ui->noseButton->setFixedSize(20, 20);  // Устанавливаем квадратный размер
+    ui->noseButton->setFixedSize(20, 20);
     ui->noseButton->setStyleSheet(
         "QPushButton {"
-        "    background-color: transparent;"   // прозрачный фон кнопки
-        "    border: none;"             // без границ
-        "    border-radius: 10px;"       // радиус равен половине ширины/высоты
+        "    background-color: transparent;"
+        "    border: none;"
+        "    border-radius: 10px;"
         "}"
         );
 
@@ -217,8 +217,6 @@ void Calculator::on_up_clicked()
     }
     else up = false;
 }
-
-
 void Calculator::on_mid_clicked()
 {
     ++Calculator::indexMid;
@@ -230,8 +228,6 @@ void Calculator::on_mid_clicked()
     }
     else mid = false;
 }
-
-
 void Calculator::on_bottom_clicked()
 {
     ++Calculator::indexBottom;
