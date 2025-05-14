@@ -1,5 +1,6 @@
 #ifndef UNION_H
 #define UNION_H
+
 #include <QCoreApplication>
 #include <QFile>
 #include <QTextStream>
@@ -13,21 +14,13 @@ class QStudent {
     QString grade;
     QString num;
 public:
-    QStudent(){
-        name = grade = num = "";
-    }
+    QStudent() : name(""), grade(""), num("") {}
 
-    QStudent(const QString &name1, const QString &grade1, const QString &num1){
-        name = name1;
-        grade = grade1;
-        num = num1;
-    }
+    QStudent(const QString &name1, const QString &grade1, const QString &num1)
+        : name(name1), grade(grade1), num(num1) {}
 
-    QStudent(const QStudent &x) {
-        name = x.name;
-        grade = x.grade;
-        num = x.num;
-    }
+    QStudent(const QStudent &x)
+        : name(x.name), grade(x.grade), num(x.num) {}
 
     QStudent& operator=(const QStudent &x) {
         if (this != &x) {
@@ -41,15 +34,13 @@ public:
     bool operator<(const QStudent &x) const {
         if (num != x.num)
             return num.toInt() < x.num.toInt();
-        if(name != x.name)
+        if (name != x.name)
             return name < x.name;
         return grade < x.grade;
     }
 
     bool operator==(const QStudent &x) const {
-        return (name == x.name) &&
-               (grade == x.grade) &&
-               (num   == x.num);
+        return (name == x.name) && (grade == x.grade) && (num == x.num);
     }
 
     bool operator!=(const QStudent &x) const {
@@ -57,9 +48,7 @@ public:
     }
 
     friend QTextStream& operator<<(QTextStream &out, const QStudent &x) {
-        out << x.name << "\n";
-        out << x.grade << "\n";
-        out << x.num;
+        out << x.name << "\n" << x.grade << "\n" << x.num << "\n";
         return out;
     }
 
@@ -70,13 +59,13 @@ public:
         return in;
     }
 
-    QString getName(){
+    QString getName() {
         return name;
     }
-    QString getGrade(){
+    QString getGrade() {
         return grade;
     }
-    QString getMark(){
+    QString getMark() {
         return num;
     }
 };
@@ -88,20 +77,14 @@ class MyUnion {
 public:
     MyUnion() : a(nullptr), n(0) {}
 
-    MyUnion(int n_) : a(nullptr), n(n_) {
-        a = new T[n];
-    }
+    MyUnion(int n_) : a(new T[n_]), n(n_) {}
 
-    MyUnion(const MyUnion<T>& x) {
-        n = x.n;
-        a = new T[n];
+    MyUnion(const MyUnion<T>& x) : a(new T[x.n]), n(x.n) {
         for (int i = 0; i < n; i++)
             a[i] = x.a[i];
     }
 
-    MyUnion(const T& x){
-        n = 1;
-        a = new T[1];
+    MyUnion(const T& x) : a(new T[1]), n(1) {
         a[0] = x;
     }
 
@@ -136,9 +119,23 @@ public:
         return *this;
     }
 
+    friend QTextStream& operator<<(QTextStream &out, const MyUnion<T>& x) {
+        out << x.n << "\n";
+        for (int i = 0; i < x.n; i++) {
+            out << x.a[i];
+        }
+        return out;
+    }
+
     friend QTextStream& operator>>(QTextStream &in, MyUnion<T>& x) {
         QString countStr = in.readLine();
-        x.n = countStr.toInt();
+        bool ok = false;
+        int count = countStr.toInt(&ok);
+        if (!ok) {
+            x.n = 0;
+            return in;
+        }
+        x.n = count;
         delete[] x.a;
         x.a = new T[x.n];
         for (int i = 0; i < x.n; i++) {
@@ -150,20 +147,9 @@ public:
         return in;
     }
 
-    friend QTextStream& operator<<(QTextStream &out, const MyUnion<T>& x) {
-        out << x.n << "\n";
-        for (int i = 0; i < x.n; i++) {
-            out << x.a[i];
-            if (i < x.n - 1) {
-                out << "\n";
-            }
-        }
-        return out;
-    }
-
-
     friend bool operator==(const MyUnion<T>& x, const MyUnion<T>& y) {
-        if (x.n != y.n) return false;
+        if (x.n != y.n)
+            return false;
         for (int i = 0; i < x.n; i++) {
             if (x.a[i] != y.a[i])
                 return false;
@@ -250,14 +236,13 @@ public:
     }
 
     MyUnion<T>& operator+=(const MyUnion<T>& x) {
-        if (this != &x) *this = *this + x;
+        if (this != &x)
+            *this = *this + x;
         return *this;
     }
-    int getLenth() const {
-        return n;
-    }
-    T* getArray() const {
-        return a;
-    }
+
+    int getLength() const { return n; }
+    T* getArray() const { return a; }
 };
+
 #endif // UNION_H

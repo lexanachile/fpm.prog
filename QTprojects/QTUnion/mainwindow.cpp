@@ -51,7 +51,7 @@ void MainWindow::on_newWindowButton_clicked()
         win->setTable(unionSet, currGroup);
 
         connect(win, &ListWindow::studentsRemoved,
-                this, &MainWindow::handleStudentsRemoved);
+                this, &MainWindow::studentsRemoved);
 
         win->show();
     }
@@ -59,7 +59,7 @@ void MainWindow::on_newWindowButton_clicked()
         return;
 }
 
-void MainWindow::handleStudentsRemoved(const QList<QStudent>& students, int groupNumber)
+void MainWindow::studentsRemoved(const QList<QStudent>& students, int groupNumber)
 {
     if (!groups.contains(groupNumber)) return;
 
@@ -67,7 +67,7 @@ void MainWindow::handleStudentsRemoved(const QList<QStudent>& students, int grou
     MyUnion<QStudent> newGroup;
 
     QStudent* array = currentGroup.getArray();
-    for (int i = 0; i < currentGroup.getLenth(); ++i) {
+    for (int i = 0; i < currentGroup.getLength(); ++i) {
         bool shouldKeep = true;
         for (const QStudent& student : students) {
             if (array[i] == student) {
@@ -202,7 +202,7 @@ void MainWindow::loadGroupsFromFile() {
         MyUnion<QStudent> group;
         in >> group;
         
-        if (!group.getLenth()) continue;
+        if (!group.getLength()) continue;
         groups[groupNumber] = group;
     }
 

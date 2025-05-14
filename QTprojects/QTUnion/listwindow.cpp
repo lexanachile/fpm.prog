@@ -34,7 +34,7 @@ void ListWindow::addStud(QString &stud, QString &grade, QString &mark){
 
 void ListWindow::setTable(const MyUnion<QStudent>& x, int groupNumber) {
     currentGroup = groupNumber;
-    rows = x.getLenth();
+    rows = x.getLength();
     ui->table->setRowCount(rows);
     QStudent* M = x.getArray();
 

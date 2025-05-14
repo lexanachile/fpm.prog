@@ -36,7 +36,7 @@ private slots:
     void on_xorButton_clicked();
     void on_intersectionButton_clicked();
     void buttonPressed(char a);
-    void handleStudentsRemoved(const QList<QStudent>& students, int groupNumber);
+    void studentsRemoved(const QList<QStudent>& students, int groupNumber);
 
 private:
     Ui::MainWindow *ui;
