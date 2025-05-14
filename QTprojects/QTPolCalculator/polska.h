@@ -20,8 +20,9 @@ private:
         { "+", [](double a, double b) { return a + b; } },
         { "-", [](double a, double b) { return a - b; } },
         { "*", [](double a, double b) { return a * b; } },
-        { "/", [](double a, double b) {
-             if(b == 0) throw PolCalcException("Division by zero");
+        {"/", [](double a, double b) {
+             constexpr double eps = 1e-9;
+             if (std::abs(b) < eps) throw PolCalcException("Division by zero");
              return a / b;
          } },
         { "^", [](double a, double b) { return pow(a, b); } }

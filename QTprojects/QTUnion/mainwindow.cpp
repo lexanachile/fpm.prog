@@ -15,10 +15,6 @@ MainWindow::~MainWindow()
     saveGroupsToFile();
     delete ui;
 }
-void MainWindow::addStud(QString name, int grade, double mark){
-
-    ui->errLabel->setText("Accept");
-}
 void MainWindow::on_addStudButton_clicked()
 {
     ui->errLabel->setText("");
@@ -36,6 +32,7 @@ void MainWindow::on_addStudButton_clicked()
         MyUnion<QStudent>& unionSet = groups[currGroup];
         QStudent x(name, grade, mark);
         unionSet = unionSet + MyUnion<QStudent>(x);
+        ui->errLabel->setText("Accept");
     }
     else ui->errLabel->setText("Error");
 
@@ -119,8 +116,8 @@ void MainWindow::on_group1_valueChanged(int arg1)
 
 
 void MainWindow::on_plusButton_clicked()
-{    buttonPressed('+');
-
+{
+    buttonPressed('+');
 }
 void MainWindow::on_minusButton_clicked()
 {

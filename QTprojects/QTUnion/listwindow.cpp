@@ -21,7 +21,7 @@ ListWindow::~ListWindow()
 {
     delete ui;
 }
-void ListWindow::addStud(QString &stud, QString &grade, QString &mark){
+/*void ListWindow::addStud(QString &stud, QString &grade, QString &mark){
     ++rows;
     ui->table->setRowCount(rows);
     QTableWidgetItem *studItem = new QTableWidgetItem(stud);
@@ -30,7 +30,7 @@ void ListWindow::addStud(QString &stud, QString &grade, QString &mark){
     ui->table->setItem(rows - 1, 0, studItem);
     ui->table->setItem(rows - 1, 1, gradeItem);
     ui->table->setItem(rows - 1, 2, markItem);
-}
+}*/
 
 void ListWindow::setTable(const MyUnion<QStudent>& x, int groupNumber) {
     currentGroup = groupNumber;

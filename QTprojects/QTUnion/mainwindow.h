@@ -19,7 +19,6 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
-    void addStud(QString name, int grade, double mark);
     void saveGroupsToFile();
     void loadGroupsFromFile();
 
