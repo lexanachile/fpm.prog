@@ -7,8 +7,8 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
 
-    win = new ListWindow;
-    //win->setAttribute(Qt::WA_DeleteOnClose);
+
+    numOfGroups = 0;
 }
 MainWindow::~MainWindow()
 {
@@ -23,20 +23,146 @@ void MainWindow::on_addStudButton_clicked()
     ui->errLabel->setText("");
     bool ok1, ok2;
     QString name = ui->fst->text();
-    // int grade = ui->snd->text().toInt(&ok1);
-    // double mark = ui->thd->text().toDouble(&ok2);
-    // if(ok1 && ok2) addStud(name, grade, mark);
-    // else ui->errLabel->setText("Error");
     QString grade = ui->snd->text();
-    int gradeInt = grade.toInt(&ok1);
+    int gradeInt = grade.toUInt(&ok1);
     QString mark = ui->thd->text();
     double markDouble = mark.toDouble(&ok2);
-    if(ok1 && ok2 && (gradeInt >= 0 && gradeInt <= 12) && (markDouble >= 0 && markDouble <= 12)) win->addStud(name, grade, mark);
+    if(markDouble < 0) ok2 = false;
+    int currGroup = ui->groupSelect->value();
+
+    if(ok1 && ok2 && (gradeInt >= 0 && gradeInt <= 12) && (markDouble >= 0 && markDouble <= 12)) {
+        //win->addStud(name, grade, mark);
+        MyUnion<QStudent>& unionSet = groups[currGroup];
+        QStudent x(name, grade, mark);
+        unionSet = unionSet + MyUnion<QStudent>(x);
+    }
     else ui->errLabel->setText("Error");
 
 }
 void MainWindow::on_newWindowButton_clicked()
 {
-    win->show();
+    win = new ListWindow;
+    win->setAttribute(Qt::WA_DeleteOnClose);
+
+    int currGroup = ui->groupCheck->value();
+    if(groups.contains(currGroup)) {
+        MyUnion<QStudent>& unionSet = groups[currGroup];
+        win->setTable(unionSet, currGroup);
+        
+        // Подключаем сигнал к слоту
+        connect(win, &ListWindow::studentsRemoved, 
+                this, &MainWindow::handleStudentsRemoved);
+                
+        win->show();
+    }
+    else
+        return;
 }
 
+void MainWindow::handleStudentsRemoved(const QList<QStudent>& students, int groupNumber)
+{
+    if (!groups.contains(groupNumber)) return;
+    
+    MyUnion<QStudent>& currentGroup = groups[groupNumber];
+    MyUnion<QStudent> newGroup;
+    
+    // Создаем новое множество без удаленных студентов
+    QStudent* array = currentGroup.getArray();
+    for (int i = 0; i < currentGroup.getLenth(); ++i) {
+        bool shouldKeep = true;
+        for (const QStudent& student : students) {
+            if (array[i] == student) {
+                shouldKeep = false;
+                break;
+            }
+        }
+        if (shouldKeep) {
+            newGroup = newGroup + MyUnion<QStudent>(array[i]);
+        }
+    }
+    
+    // Обновляем группу в QMap
+    groups[groupNumber] = newGroup;
+}
+
+int MainWindow::checkGroup(int arg1){
+    QList<int> keysList = groups.keys();
+    if (keysList.isEmpty()) {
+        return 0;
+    }
+    if (groups.contains(arg1)) {
+        return arg1;
+    }
+
+    std::sort(keysList.begin(), keysList.end());
+    int closest = keysList[0];
+    for (int key : keysList) {
+        if (key >= arg1) {
+            closest = key;
+            break;
+        }
+    }
+    return closest;
+}
+
+void MainWindow::on_groupCheck_valueChanged(int arg1)
+{
+    ui->groupCheck->setValue(checkGroup(arg1));
+}
+void MainWindow::on_group2_valueChanged(int arg1)
+{
+    ui->group2->setValue(checkGroup(arg1));
+}
+void MainWindow::on_group1_valueChanged(int arg1)
+{
+    ui->group1->setValue(checkGroup(arg1));
+}
+
+
+
+void MainWindow::on_plusButton_clicked()
+{    buttonPressed('+');
+
+}
+void MainWindow::on_minusButton_clicked()
+{
+    buttonPressed('-');
+}
+void MainWindow::on_xorButton_clicked()
+{
+    buttonPressed('*');
+}
+void MainWindow::on_intersectionButton_clicked()
+{
+    buttonPressed('/');
+}
+
+void MainWindow::buttonPressed(char a){
+    int x = ui->group1->value();
+    int y = ui->group2->value();
+    int z = ui->groupResult->value();
+    MyUnion<QStudent>& X = groups[x];
+    MyUnion<QStudent>& Y = groups[y];
+    MyUnion<QStudent> Z;
+    switch (a) {
+    case '+':{
+        Z = X + Y;
+        break;
+    }
+    case '-':{
+        Z = X - Y;
+        break;
+    }
+    case '/':{
+        Z = X / Y;
+        break;
+    }
+    case '*':{
+        Z = X * Y;
+        break;
+    }
+    default:
+        break;
+    }
+    groups[z] = Z;
+}

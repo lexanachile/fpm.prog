@@ -1,5 +1,3 @@
-#ifndef UNION_H
-#define UNION_H
 #include <QCoreApplication>
 #include <QFile>
 #include <QTextStream>
@@ -8,66 +6,58 @@
 #include <cstring>
 #include <vector>
 
-class QStudent {
-    QString name;
-    QString grade;
-    QString num;
-public:
-    QStudent(){
-        name = grade = num = "";
-    }
+struct student {
+    char name[10];
+    double grade;
+    int num;
 
-    QStudent(const QString &name1, const QString &grade1, const QString &num1){
-        name = name1;
-        grade = grade1;
-        num = num1;
-    }
+    student() : name{}, grade(0), num(0) {}
 
-    QStudent(const QStudent &x) {
-        name = x.name;
+    student(const student &x) {
+        strncpy(name, x.name, sizeof(name));
+        name[sizeof(name) - 1] = '\0';
         grade = x.grade;
-        num = x.num;
+        num   = x.num;
     }
 
-    QStudent& operator=(const QStudent &x) {
+    student& operator=(const student &x) {
         if (this != &x) {
-            name = x.name;
+            strncpy(name, x.name, sizeof(name));
+            name[sizeof(name) - 1] = '\0';
             grade = x.grade;
-            num = x.num;
+            num   = x.num;
         }
         return *this;
     }
 
-    bool operator<(const QStudent &x) const {
+    bool operator<(const student &x) const {
         if (num != x.num)
-            return num.toInt() < x.num.toInt();
-        if(name != x.name)
-            return name < x.name;
-        return grade < x.grade;
+            return num < x.num;
+        return strcmp(name, x.name) < 0;
     }
 
-    bool operator==(const QStudent &x) const {
-        return (name == x.name) &&
+    bool operator==(const student &x) const {
+        return (strcmp(name, x.name) == 0) &&
                (grade == x.grade) &&
                (num   == x.num);
     }
 
-    bool operator!=(const QStudent &x) const {
+    bool operator!=(const student &x) const {
         return !(*this == x);
     }
 
-    friend QTextStream& operator<<(QTextStream &out, const QStudent &x) {
+    friend QTextStream& operator<<(QTextStream &out, const student &x) {
         out << x.name << " " << x.grade << " " << x.num;
         return out;
     }
-    QString getName(){
-        return name;
-    }
-    QString getGrade(){
-        return grade;
-    }
-    QString getMark(){
-        return num;
+
+    friend QTextStream& operator>>(QTextStream &in, student &x) {
+        QString nameStr;
+        in >> nameStr >> x.grade >> x.num;
+        QByteArray ba = nameStr.toLocal8Bit();
+        strncpy(x.name, ba.constData(), sizeof(x.name));
+        x.name[sizeof(x.name) - 1] = '\0';
+        return in;
     }
 };
 
@@ -87,12 +77,6 @@ public:
         a = new T[n];
         for (int i = 0; i < n; i++)
             a[i] = x.a[i];
-    }
-
-    MyUnion(const T& x){
-        n = 1;
-        a = new T[1];
-        a[0] = x;
     }
 
     MyUnion(MyUnion<T>&& other) noexcept : a(other.a), n(other.n) {
@@ -235,16 +219,40 @@ public:
     friend MyUnion<T> operator*(const MyUnion<T>& x, const MyUnion<T>& y) {
         return (x + y) - (x / y);
     }
-
-    MyUnion<T>& operator+=(const MyUnion<T>& x) {
-        if (this != &x) *this = *this + x;
-        return *this;
-    }
-    int getLenth() const {
-        return n;
-    }
-    T* getArray() const {
-        return a;
-    }
 };
-#endif // UNION_H
+
+int main(int argc, char *argv[])
+{
+    QCoreApplication app(argc, argv);
+
+    QFile fin("input.txt");
+    if (!fin.open(QIODevice::ReadOnly | QIODevice::Text)) {
+        qWarning() << "Cannot open input.txt";
+        return 1;
+    }
+    QTextStream in(&fin);
+
+    QFile fout("output.txt");
+    if (!fout.open(QIODevice::WriteOnly | QIODevice::Text)) {
+        qWarning() << "Cannot open output.txt";
+        return 1;
+    }
+    QTextStream out(&fout);
+
+    MyUnion<student> X, Y, Z;
+    in >> X >> Y;
+
+    Z = X + Y;
+    out << Z;
+
+    Z = X - Y;
+    out << Z;
+
+    Z = X / Y;
+    out << Z;
+
+    Z = X * Y;
+    out << Z;
+
+    return 0;
+}

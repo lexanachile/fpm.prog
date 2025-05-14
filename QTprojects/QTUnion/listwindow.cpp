@@ -32,6 +32,23 @@ void ListWindow::addStud(QString &stud, QString &grade, QString &mark){
     ui->table->setItem(rows - 1, 2, markItem);
 }
 
+void ListWindow::setTable(const MyUnion<QStudent>& x, int groupNumber) {
+    currentGroup = groupNumber;
+    rows = x.getLenth();
+    ui->table->setRowCount(rows);
+    QStudent* M = x.getArray();
+
+    for (int var = 0; var < rows; ++var) {
+        QTableWidgetItem *studItem = new QTableWidgetItem(M[var].getName());
+        QTableWidgetItem *gradeItem = new QTableWidgetItem(M[var].getGrade());
+        QTableWidgetItem *markItem = new QTableWidgetItem(M[var].getMark());
+
+        ui->table->setItem(var, 0, studItem);
+        ui->table->setItem(var, 1, gradeItem);
+        ui->table->setItem(var, 2, markItem);
+    }
+}
+
 void ListWindow::on_pushButton_clicked()
 {
     QList<QTableWidgetItem*> items= ui->table->selectedItems();
@@ -49,4 +66,3 @@ void ListWindow::on_pushButton_clicked()
         bufRow = row;
     }
 }
-
