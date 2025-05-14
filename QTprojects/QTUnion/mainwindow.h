@@ -20,6 +20,9 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
     void addStud(QString name, int grade, double mark);
+    void saveGroupsToFile();
+    void loadGroupsFromFile();
+
 private slots:
     void on_addStudButton_clicked();
     void on_newWindowButton_clicked();
@@ -40,5 +43,6 @@ private:
     ListWindow *win;
     QMap<int, MyUnion<QStudent>> groups;
     int numOfGroups;
+    const QString FILE_NAME = "groups.txt"; // Новая переменная
 };
 #endif // MAINWINDOW_H

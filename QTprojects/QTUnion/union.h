@@ -57,9 +57,19 @@ public:
     }
 
     friend QTextStream& operator<<(QTextStream &out, const QStudent &x) {
-        out << x.name << " " << x.grade << " " << x.num;
+        out << x.name << "\n";
+        out << x.grade << "\n";
+        out << x.num;
         return out;
     }
+
+    friend QTextStream& operator>>(QTextStream &in, QStudent &x) {
+        x.name = in.readLine();
+        x.grade = in.readLine();
+        x.num = in.readLine();
+        return in;
+    }
+
     QString getName(){
         return name;
     }
@@ -127,7 +137,8 @@ public:
     }
 
     friend QTextStream& operator>>(QTextStream &in, MyUnion<T>& x) {
-        in >> x.n;
+        QString countStr = in.readLine();
+        x.n = countStr.toInt();
         delete[] x.a;
         x.a = new T[x.n];
         for (int i = 0; i < x.n; i++) {
@@ -140,14 +151,16 @@ public:
     }
 
     friend QTextStream& operator<<(QTextStream &out, const MyUnion<T>& x) {
-        out << "moshnost'= " << x.n << "\n";
+        out << x.n << "\n";
         for (int i = 0; i < x.n; i++) {
             out << x.a[i];
-            if (i + 1 < x.n) out << " ";
+            if (i < x.n - 1) {
+                out << "\n";
+            }
         }
-        out << "\n";
         return out;
     }
+
 
     friend bool operator==(const MyUnion<T>& x, const MyUnion<T>& y) {
         if (x.n != y.n) return false;

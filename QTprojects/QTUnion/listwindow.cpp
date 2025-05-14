@@ -51,18 +51,28 @@ void ListWindow::setTable(const MyUnion<QStudent>& x, int groupNumber) {
 
 void ListWindow::on_pushButton_clicked()
 {
-    QList<QTableWidgetItem*> items= ui->table->selectedItems();
-    //QSet<int> rowsToRemove;
+    QList<QTableWidgetItem*> items = ui->table->selectedItems();
     QList<int> rowsToRemove;
+    QList<QStudent> studentsToRemove;
+
     for (QTableWidgetItem* item : items) {
-        rowsToRemove.append(item->row());
+        int row = item->row();
+        if (!rowsToRemove.contains(row)) {
+            rowsToRemove.append(row);
+
+            QString name = ui->table->item(row, 0)->text();
+            QString grade = ui->table->item(row, 1)->text();
+            QString mark = ui->table->item(row, 2)->text();
+            studentsToRemove.append(QStudent(name, grade, mark));
+        }
     }
     std::sort(rowsToRemove.begin(), rowsToRemove.end(), std::greater<int>());
     int bufRow = -1;
-    for(const int &row : rowsToRemove){
+    for(const int &row : rowsToRemove) {
         if(row == bufRow) continue;
         --rows;
         ui->table->removeRow(row);
         bufRow = row;
     }
+    studentsRemoved(studentsToRemove, currentGroup);
 }

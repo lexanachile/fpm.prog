@@ -6,12 +6,13 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-
-
     numOfGroups = 0;
+    loadGroupsFromFile();
 }
+
 MainWindow::~MainWindow()
 {
+    saveGroupsToFile();
     delete ui;
 }
 void MainWindow::addStud(QString name, int grade, double mark){
@@ -48,11 +49,10 @@ void MainWindow::on_newWindowButton_clicked()
     if(groups.contains(currGroup)) {
         MyUnion<QStudent>& unionSet = groups[currGroup];
         win->setTable(unionSet, currGroup);
-        
-        // Подключаем сигнал к слоту
-        connect(win, &ListWindow::studentsRemoved, 
+
+        connect(win, &ListWindow::studentsRemoved,
                 this, &MainWindow::handleStudentsRemoved);
-                
+
         win->show();
     }
     else
@@ -62,11 +62,10 @@ void MainWindow::on_newWindowButton_clicked()
 void MainWindow::handleStudentsRemoved(const QList<QStudent>& students, int groupNumber)
 {
     if (!groups.contains(groupNumber)) return;
-    
+
     MyUnion<QStudent>& currentGroup = groups[groupNumber];
     MyUnion<QStudent> newGroup;
-    
-    // Создаем новое множество без удаленных студентов
+
     QStudent* array = currentGroup.getArray();
     for (int i = 0; i < currentGroup.getLenth(); ++i) {
         bool shouldKeep = true;
@@ -80,8 +79,7 @@ void MainWindow::handleStudentsRemoved(const QList<QStudent>& students, int grou
             newGroup = newGroup + MyUnion<QStudent>(array[i]);
         }
     }
-    
-    // Обновляем группу в QMap
+
     groups[groupNumber] = newGroup;
 }
 
@@ -165,4 +163,48 @@ void MainWindow::buttonPressed(char a){
         break;
     }
     groups[z] = Z;
+}
+void MainWindow::saveGroupsToFile() {
+    QFile file(FILE_NAME);
+    if (!file.open(QIODevice::WriteOnly | QIODevice::Text)) {
+        qWarning() << "Cannot open file for writing:" << FILE_NAME;
+        return;
+    }
+
+    QTextStream out(&file);
+    out << groups.size() << "\n";
+    
+    for (auto it = groups.begin(); it != groups.end(); ++it) {
+        out << it.key() << "\n";
+        out << it.value();
+    }
+
+    file.close();
+}
+
+void MainWindow::loadGroupsFromFile() {
+    QFile file(FILE_NAME);
+    if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
+        qWarning() << "Cannot open file for reading:" << FILE_NAME;
+        return;
+    }
+
+    QTextStream in(&file);
+    groups.clear();
+
+    QString line = in.readLine();
+    int groupCount = line.toInt();
+
+    for (int i = 0; i < groupCount; ++i) {
+        line = in.readLine();
+        int groupNumber = line.toInt();
+
+        MyUnion<QStudent> group;
+        in >> group;
+        
+        if (!group.getLenth()) continue;
+        groups[groupNumber] = group;
+    }
+
+    file.close();
 }
